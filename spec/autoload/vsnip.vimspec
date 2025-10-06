@@ -188,6 +188,11 @@ Describe vsnip
       \   })
       \ })
     End
+    It should not return complete items
+      enew!
+      set filetype=basic_spec
+      call s:expect(vsnip#completefunc(0, 'あ')).to_equal([])
+    End
   End
 
 End

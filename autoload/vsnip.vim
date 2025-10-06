@@ -171,7 +171,7 @@ endfunction
 "
 function! vsnip#completefunc(findstart, base) abort
   if !a:findstart
-    if a:base ==# ''
+    if a:base ==# '' || a:base =~# '[^\x00-\x7f]'
       return []
     endif
     return vsnip#get_complete_items(bufnr('%'))
